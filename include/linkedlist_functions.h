@@ -44,3 +44,24 @@ extern void Reverse(SNode *pNode, int from, int to);
 extern void DeleteDuplicateNode(SNode *pHead);
 
 #endif
+
+#ifndef PARTITION_H
+#define PARTITION_H
+
+extern void Partition(SNode *pHead, int value);
+
+#endif
+
+#ifndef SAMENODE_H
+#define SAMENODE_H
+
+extern SNode *FindFirstSameNode(SNode *pA, SNode *pB);
+
+#endif
+
+#ifndef LIST_LENGTH_H
+#define LIST_LENGTH_H
+
+extern int calListLength(SNode* pHead);
+
+#endif

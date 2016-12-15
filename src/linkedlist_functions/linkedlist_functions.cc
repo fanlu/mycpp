@@ -97,3 +97,96 @@ void DeleteDuplicateNode(SNode *pHead) {
         }
     }
 }
+
+void Partition(SNode *pHead, int value) {
+    SNode *pLeftHead = new SNode(0);
+    SNode *pRightHead = new SNode(0);
+    SNode *pLeft = pLeftHead;
+    SNode *pRight = pRightHead;
+    SNode *p = pHead->pNext;
+    while (p) {
+        if (p->value < value) {
+            pLeft->pNext = p;
+            pLeft = p;
+        } else {
+            pRight->pNext = p;
+            pRight = p;
+        }
+        p = p->pNext;
+    }
+    pLeft->pNext = pRightHead->pNext;
+    pRight->pNext = NULL;
+
+    pHead->pNext = pLeftHead->pNext;
+
+    delete pLeftHead;
+    delete pRightHead;
+}
+
+/**
+ * Swap(&pA, &pB);
+ * @param pA
+ * @param pB
+ */
+void Swap(SNode **pA, SNode **pB) {
+    SNode *p = *pA;
+    *pA = *pB;
+    *pB = p;
+}
+
+/**
+ * Swap(pA, pB);
+ * @param pA
+ * @param pB
+ */
+void Swap(SNode *&pA, SNode *&pB) {
+    SNode *p = pA;
+    pA = pB;
+    pB = p;
+}
+
+/**
+ * Swap(&pALen, &pBLen);
+ * @param pALen
+ * @param pBLen
+ */
+void Swap(int *pALen, int *pBLen){
+    int temp = *pALen;
+    *pALen = *pBLen;
+    *pBLen = temp;
+}
+
+int CalListLength(SNode *pHead) {
+    int len = 0;
+    while(pHead){
+        len ++;
+        pHead = pHead->pNext;
+    }
+    return len;
+}
+
+SNode *FindFirstSameNode(SNode *pA, SNode *pB) {
+    pA = pA->pNext;
+    pB = pB->pNext;
+    int pALen = CalListLength(pA);
+    int pBLen = CalListLength(pB);
+    if(pALen > pBLen){
+//        std::swap(pA, pB);
+//        std::swap(pALen, pBLen);
+//        Swap(&pA, &pB);
+        Swap(pA, pB);
+        Swap(&pALen, &pBLen);
+    }
+    for(int i = 0; i<pBLen-pALen; i++){
+        pB = pB->pNext;
+    }
+
+    while (pA){
+        if(pA->value=pB->value)
+            return pA;
+        pA = pA->pNext;
+        pB = pB->pNext;
+    }
+    return NULL;
+}
+

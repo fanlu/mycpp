@@ -129,5 +129,8 @@ lib
 .DS_Store
 
 cmake-build-debug
-.cbp
+*.cbp
 Makefile
+**/*Demo
+/src/cmake_test/Demo
+/mycpp.cbp
