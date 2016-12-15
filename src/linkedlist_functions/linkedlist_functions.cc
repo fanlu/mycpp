@@ -58,21 +58,42 @@ SNode *Add(SNode *pHead1, SNode *pHead2) {
     return pSum;
 }
 
-void Reverse(SNode *pNode, int from, int to) {
-    SNode *pCur = pNode;
+void Reverse(SNode *pHead, int from, int to) {
+    cout << pHead << "'s value is " << pHead->value << endl;
+    SNode *pCur = pHead;
     int i;
     for (i = 0; i < from - 1; i++) {
+        pHead = pCur;
         pCur = pCur->pNext;
     }
+    cout << pCur->value << endl;
     SNode *pPre = pCur;
     pCur = pCur->pNext;
+    cout << pCur->value << endl;
     to--;
     SNode *pNext;
+    cout << "i's value is " << i << endl;
     for (; i < to; i++) {
+        cout << "loop i's value is " << i << endl;
         pNext = pCur->pNext;
-        pCur->pNext = pNext->pNext;
-        pNext->pNext = pCur;
+        pCur->pNext = pHead->pNext;
+        pHead->pNext = pCur;
         pPre->pNext = pNext;
         pCur = pNext;
+    }
+    cout << pHead << endl;
+}
+
+void DeleteDuplicateNode(SNode *pHead) {
+    SNode *pPre = pHead->pNext;
+    SNode *pCur;
+    while (pPre) {
+        pCur = pPre->pNext;
+        if (pCur && (pCur->value == pPre->value)) {
+            pPre->pNext = pCur->pNext;
+            delete pCur;
+        } else {
+            pPre = pCur;
+        }
     }
 }

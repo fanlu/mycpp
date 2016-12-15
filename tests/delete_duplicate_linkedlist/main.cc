@@ -1,25 +1,20 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "linkedlist_functions.h"
-#include <iostream>
-using namespace std;
-
 
 int main() {
     SNode *pHead = new SNode(0);
-    int i;
-    for (i = 0; i < 10; i++) {
-        SNode *p = new SNode(rand() % 10);
+    int data[] = {1, 2, 3, 4, 4, 4, 4, 6, 5, 5, 5, 3};
+    int length = sizeof(data) / sizeof(int);
+    for (int i = length - 1; i > 0; i--) {
+        SNode *p = new SNode(data[i]);
         p->pNext = pHead->pNext;
         pHead->pNext = p;
-
     }
 
     Print(pHead);
-    cout << pHead <<endl;
-    Reverse(pHead, 4, 8);
-    cout << pHead <<endl;
+    DeleteDuplicateNode(pHead);
     Print(pHead);
     Destroy(pHead);
     return 0;
 }
-

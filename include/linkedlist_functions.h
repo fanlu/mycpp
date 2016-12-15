@@ -37,3 +37,10 @@ extern SNode *Add(SNode *pNode, SNode *pSNode);
 extern void Reverse(SNode *pNode, int from, int to);
 
 #endif
+
+#ifndef DELETE_H
+#define DELETE_H
+
+extern void DeleteDuplicateNode(SNode *pHead);
+
+#endif
