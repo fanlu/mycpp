@@ -1,0 +1,2 @@
+ADD_EXECUTABLE(sum_linkedlist main.cc)
+TARGET_LINK_LIBRARIES(sum_linkedlist linkedlist)

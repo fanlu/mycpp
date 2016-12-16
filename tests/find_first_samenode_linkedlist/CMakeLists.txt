@@ -1,0 +1,2 @@
+ADD_EXECUTABLE(find_first_samenode_linkedlist main.cpp)
+TARGET_LINK_LIBRARIES(find_first_samenode_linkedlist linkedlist)

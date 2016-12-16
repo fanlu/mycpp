@@ -1,0 +1,2 @@
+ADD_EXECUTABLE(delete_duplicate_linkedlist main.cc)
+TARGET_LINK_LIBRARIES(delete_duplicate_linkedlist linkedlist)
