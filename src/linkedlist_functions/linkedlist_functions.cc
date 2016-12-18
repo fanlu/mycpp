@@ -21,6 +21,7 @@ void Destroy(SNode *p) {
         next = p->pNext;
         delete p;
         p = next;
+        Print(p);
     }
 }
 
@@ -123,6 +124,21 @@ void Partition(SNode *pHead, int value) {
     delete pRightHead;
 }
 
+SNode *Partition(SNode *pHead, SNode *end) {
+    SNode *p = pHead;
+    int value = p->value;
+    SNode *q = p->pNext;
+    while(q != end->pNext && q != NULL){
+        if(q->value < value){
+            p=p->pNext;
+            swap(p->value, q->value);
+        }
+        q = q->pNext;
+    }
+    swap(p->value, pHead->value);
+    return p;
+}
+
 /**
  * Swap(&pA, &pB);
  * @param pA
@@ -150,7 +166,7 @@ void Swap(SNode *&pA, SNode *&pB) {
  * @param pALen
  * @param pBLen
  */
-void Swap(int *pALen, int *pBLen){
+void Swap(int *pALen, int *pBLen) {
     int temp = *pALen;
     *pALen = *pBLen;
     *pBLen = temp;
@@ -158,8 +174,8 @@ void Swap(int *pALen, int *pBLen){
 
 int CalListLength(SNode *pHead) {
     int len = 0;
-    while(pHead){
-        len ++;
+    while (pHead) {
+        len++;
         pHead = pHead->pNext;
     }
     return len;
@@ -170,19 +186,19 @@ SNode *FindFirstSameNode(SNode *pA, SNode *pB) {
     pB = pB->pNext;
     int pALen = CalListLength(pA);
     int pBLen = CalListLength(pB);
-    if(pALen > pBLen){
+    if (pALen > pBLen) {
 //        std::swap(pA, pB);
 //        std::swap(pALen, pBLen);
 //        Swap(&pA, &pB);
         Swap(pA, pB);
         Swap(&pALen, &pBLen);
     }
-    for(int i = 0; i<pBLen-pALen; i++){
+    for (int i = 0; i < pBLen - pALen; i++) {
         pB = pB->pNext;
     }
 
-    while (pA){
-        if(pA->value=pB->value)
+    while (pA) {
+        if (pA->value = pB->value)
             return pA;
         pA = pA->pNext;
         pB = pB->pNext;
@@ -190,3 +206,12 @@ SNode *FindFirstSameNode(SNode *pA, SNode *pB) {
     return NULL;
 }
 
+SNode *QuickSort(SNode *pHead, SNode *pEnd) {
+    if(pHead != pEnd){
+        SNode *p = Partition(pHead, pEnd);
+        QuickSort(pHead, p);
+        if(p->pNext){
+            QuickSort(p->pNext, pEnd);
+        }
+    }
+}

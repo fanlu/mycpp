@@ -1,5 +1,5 @@
-#ifndef _SNODE_H
-#define _SNODE_H
+#ifndef _LINKEDLIST_H
+#define _LINKEDLIST_H
 
 typedef struct tagSNode {
     int value;
@@ -7,61 +7,23 @@ typedef struct tagSNode {
 
     tagSNode(int v) : value(v), pNext(NULL) {}
 } SNode;
-#endif
-
-#ifndef print_h
-#define print_h
 
 extern void Print(SNode *pNode);
 
-#endif
-
-#ifndef destroy_h
-#define destroy_h
-
 extern void Destroy(SNode *p);
-
-#endif
-
-#ifndef ADD_H
-#define ADD_H
 
 extern SNode *Add(SNode *pNode, SNode *pSNode);
 
-#endif
-
-
-#ifndef REVERSE_H
-#define REVERSE_H
-
 extern void Reverse(SNode *pNode, int from, int to);
-
-#endif
-
-#ifndef DELETE_H
-#define DELETE_H
 
 extern void DeleteDuplicateNode(SNode *pHead);
 
-#endif
-
-#ifndef PARTITION_H
-#define PARTITION_H
-
 extern void Partition(SNode *pHead, int value);
-
-#endif
-
-#ifndef SAMENODE_H
-#define SAMENODE_H
 
 extern SNode *FindFirstSameNode(SNode *pA, SNode *pB);
 
-#endif
+extern int calListLength(SNode *pHead);
 
-#ifndef LIST_LENGTH_H
-#define LIST_LENGTH_H
-
-extern int calListLength(SNode* pHead);
+extern SNode *QuickSort(SNode *pHead, SNode *pEnd);
 
 #endif

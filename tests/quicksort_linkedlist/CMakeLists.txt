@@ -1,0 +1,2 @@
+ADD_EXECUTABLE(quick_sort main.cpp)
+TARGET_LINK_LIBRARIES(quick_sort linkedlist)

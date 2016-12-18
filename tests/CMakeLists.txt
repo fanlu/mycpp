@@ -1,0 +1,6 @@
+ADD_SUBDIRECTORY(sum_linkedlist)
+ADD_SUBDIRECTORY(reverse_linkedlist)
+ADD_SUBDIRECTORY(delete_duplicate_linkedlist)
+ADD_SUBDIRECTORY(partition_linkedlist)
+ADD_SUBDIRECTORY(find_first_samenode_linkedlist)
+ADD_SUBDIRECTORY(quicksort_linkedlist)
