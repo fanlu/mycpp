@@ -133,3 +133,4 @@ Makefile
 **/*Demo
 /src/cmake_test/Demo
 /mycpp.cbp
+CMakeCache.txt
