@@ -21,7 +21,7 @@ void Destroy(SNode *p) {
         next = p->pNext;
         delete p;
         p = next;
-        Print(p);
+//        Print(p);
     }
 }
 
