@@ -1,0 +1,2 @@
+ADD_EXECUTABLE(permutation permutation.cpp)
+TARGET_LINK_LIBRARIES(permutation linkedlist)
