@@ -180,7 +180,12 @@ int CalListLength(SNode *pHead) {
     }
     return len;
 }
-
+/**
+ *
+ * @param pA
+ * @param pB
+ * @return
+ */
 SNode *FindFirstSameNode(SNode *pA, SNode *pB) {
     pA = pA->pNext;
     pB = pB->pNext;
