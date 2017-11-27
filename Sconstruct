@@ -1,0 +1,27 @@
+env = Environment()
+env.Tool('nvcc', toolpath = ['./'])
+env.Append(CPPPATH = ['/usr/local/cuda/include', '/usr/local/cuda/samples/common/inc/'])
+env.Append(LIBPATH = ['/usr/local/lib/',
+                      '/usr/local/cuda/lib',
+                      '/usr/local/cuda/lib64/',])
+env.Append(LIBS = ['glog',
+                   'cublas',
+                   'cudnn',
+                   'cudart',
+                   'stdc++',
+                   'm',])
+env.Append(CPPPATH = ['./include'])
+env.Append(CCFLAGS = [
+    '-DHAVE_MSER',
+    '-DKENLM_MAX_ORDER=6',
+    '-DNDEBUG',
+    '-DHAVE_LIBCURL',
+    '-Wall',
+    '-fopenmp',
+    '-g',
+    '-std=c++11',
+])
+env.Program('hello', Glob("./src/cuda_test/hello.cu"))
+env.Program('cublas_add', Glob("./src/cuda_test/cublas_add.cu"))
+env.Program('cublas_test', Glob("./src/cuda_test/cublas_test.cu"))
+env.Program('cublas_dot', Glob("./src/cuda_test/cuda_dot.cu"))
